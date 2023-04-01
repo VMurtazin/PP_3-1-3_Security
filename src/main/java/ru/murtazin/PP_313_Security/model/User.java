@@ -20,7 +20,7 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@Table(name="users")
+@Table(name = "users")
 public class User implements UserDetails {
 
     @Id
@@ -28,7 +28,7 @@ public class User implements UserDetails {
     private Long id;
 
     @Column(name = "name")
-    private String name;
+    private String username;
 
     @Column(name = "surname")
     private String surname;
@@ -50,8 +50,8 @@ public class User implements UserDetails {
     public User() {
     }
 
-    public User(String name, String surname, String email, String password, Set<Role> roles) {
-        this.name = name;
+    public User(String username, String surname, String email, String password, Set<Role> roles) {
+        this.username = username;
         this.surname = surname;
         this.email = email;
         this.password = password;
@@ -66,12 +66,9 @@ public class User implements UserDetails {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String name) {
+        this.username = name;
     }
 
     public String getSurname() {
@@ -100,9 +97,9 @@ public class User implements UserDetails {
         return password;
     }
 
-    @Override
+
     public String getUsername() {
-        return name;
+        return username;
     }
 
     @Override
@@ -141,7 +138,7 @@ public class User implements UserDetails {
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", name='" + username + '\'' +
                 ", surname='" + surname + '\'' +
                 ", email='" + email + '\'' +
                 '}';
@@ -152,12 +149,12 @@ public class User implements UserDetails {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equals(id, user.id) && Objects.equals(name, user.name) && Objects.equals(surname, user.surname) && Objects.equals(email, user.email) && Objects.equals(password, user.password);
+        return Objects.equals(id, user.id) && Objects.equals(username, user.username) && Objects.equals(surname, user.surname) && Objects.equals(email, user.email) && Objects.equals(password, user.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, surname, email, password);
+        return Objects.hash(id, username, surname, email, password);
     }
 
 
