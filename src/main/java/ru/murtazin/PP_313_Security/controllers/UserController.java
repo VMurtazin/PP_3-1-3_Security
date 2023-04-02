@@ -18,14 +18,14 @@ public class UserController {
         this.userService = userService;
     }
 
+    @GetMapping("/login")
+    public String loginPage() {
+        return "login";
+    }
+
     @GetMapping("/user")
     public String userPage(Model model, Principal principal) {
         model.addAttribute("user", userService.getUserByName(principal.getName()));
         return "user";
-    }
-
-    @GetMapping("/login")
-    public String loginPage() {
-        return "login";
     }
 }
