@@ -17,7 +17,7 @@
             <th>Name</th>
             <th>Surname</th>
             <th>Email</th>
-            <th>Password</th>
+<!--            <th>Password</th>-->
             <th>Role</th>
             <th>Actions</th>
         </tr>
@@ -27,7 +27,7 @@
             <td th:utext="${user.getUsername()}">value</td>
             <td th:utext="${user.getSurname()}">value</td>
             <td th:utext="${user.getEmail()}">value</td>
-            <td th:utext="${user.getPassword()}">value</td>
+<!--            <td th:utext="${user.getPassword()}">value</td>-->
             <td>
                 <div th:each="role:${user.getRoles()}">[[${role.getName()}]]</div>
             </td>
