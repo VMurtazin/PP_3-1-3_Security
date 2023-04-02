@@ -5,14 +5,19 @@
   <title>Login page</title>
 </head>
 <body>
-
+<br>
+<div align="center">
+  <br>
+  <hr>
+  <br>
 <form name="f" method="post" action="/process_login">
   <label for="username">Enter username</label>
   <input type="text" name="username" id="username"/>
   <br>
   <label for="password">Enter password</label>
   <input type="password" name="password" id="password"/>
-  <br/>
+  <br>
+  <br>
   <input type="submit" value="login"/>
 
   <div th:if="${param.error}" style="color: red">
@@ -20,7 +25,7 @@
   </div>
 </form>
 
-<a href="/index">Start page</a>
-
+<a href="/index">Back to start page</a>
+</div>
 </body>
 </html>

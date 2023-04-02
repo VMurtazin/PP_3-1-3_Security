@@ -13,26 +13,26 @@ import java.util.Set;
 @Component
 public class AddUserAndAdminInStart {
 
-    private final RoleService roleService;
-    private final UserService userService;
-
-    @Autowired
-    public AddUserAndAdminInStart(RoleService roleService, UserService userService) {
-        this.roleService = roleService;
-        this.userService = userService;
-    }
-
-    @PostConstruct
-    public void startApp(){
-        Role adminRole=new Role("ROLE_ADMIN");
-        Role userRole=new Role("ROLE_USER");
-        roleService.saveRole(adminRole);
-        roleService.saveRole(userRole);
-
-        User admin=new User("admin","adminov","admin@mail.ru","admin", Set.of(adminRole,userRole));
-        userService.saveUser(admin);
-
-        User user=new User("user","userov","user@mail.ru","user",Set.of(userRole));
-        userService.saveUser(user);
-    }
+//    private final RoleService roleService;
+//    private final UserService userService;
+//
+//    @Autowired
+//    public AddUserAndAdminInStart(RoleService roleService, UserService userService) {
+//        this.roleService = roleService;
+//        this.userService = userService;
+//    }
+//
+//    @PostConstruct
+//    public void startApp(){
+//        Role adminRole=new Role("ROLE_ADMIN");
+//        Role userRole=new Role("ROLE_USER");
+//        roleService.saveRole(adminRole);
+//        roleService.saveRole(userRole);
+//
+//        User admin=new User("admin","adminov","admin@mail.ru","admin", Set.of(adminRole,userRole));
+//        userService.saveUser(admin);
+//
+//        User user=new User("user","userov","user@mail.ru","user",Set.of(userRole));
+//        userService.saveUser(user);
+//    }
 }

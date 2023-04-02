@@ -5,20 +5,20 @@
     <title>Users</title>
 </head>
 <body>
-<h1>User's profile</h1>
+<h1>User's page</h1>
 <table border="1">
         <tr>
             <th>Id</th>
             <th>Username</th>
-            <th>Name</th>
-            <th>Lastname</th>
+            <th>Surname</th>
+            <th>email</th>
         </tr>
 
-        <tr th:each="user: ${ru.murtazin.PP_313_Security.model.User}">
+        <tr th:each="user: ${user}">
             <td th:utext="${user.getId()}">value</td>
             <td th:utext="${user.getUsername()}">value</td>
-            <td th:utext="${user.getName()}">value</td>
-            <td th:utext="${user.getLastname()}">value</td>
+            <td th:utext="${user.getSurname()}">value</td>
+            <td th:utext="${user.getEmail()}">value</td>
         </tr>
     </table>
     <br/>

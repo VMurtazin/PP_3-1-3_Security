@@ -5,15 +5,18 @@
     <title>Admin panel</title>
 </head>
 <body>
-<h1>Welcome to Admin panel</h1>
+<br>
+<div align="center">
+<h2>Admin page</h2>
+<hr>
 <br>
 <div>
-    <table border="1">
+    <table border="1" style="width: 300px">
         <tr>
             <th>Id</th>
-            <th>Username</th>
             <th>Name</th>
-            <th>Lastname</th>
+            <th>Surname</th>
+            <th>Email</th>
             <th>Password</th>
             <th>Role</th>
             <th>Actions</th>
@@ -22,8 +25,8 @@
         <tr th:each="user: ${users}">
             <td th:utext="${user.getId()}">value</td>
             <td th:utext="${user.getUsername()}">value</td>
-            <td th:utext="${user.getName()}">value</td>
-            <td th:utext="${user.getLastname()}">value</td>
+            <td th:utext="${user.getSurname()}">value</td>
+            <td th:utext="${user.getEmail()}">value</td>
             <td th:utext="${user.getPassword()}">value</td>
             <td>
                 <div th:each="role:${user.getRoles()}">[[${role.getName()}]]</div>
@@ -42,6 +45,7 @@
     <a href="/admin/new">Create user</a>
     <br/>
     <a href="/logout">Logout</a>
+</div>
 </div>
 </body>
 </html>
