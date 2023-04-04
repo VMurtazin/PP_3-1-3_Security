@@ -25,7 +25,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
-
     @Override
     public void saveUser(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
@@ -56,16 +55,19 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     @Override
     public void updateUser(User updatedUser, Long id) {
 
-        //User userFromDb = userRepository.findById(id).get();
-//        if (userFromDb.getPassword().equals(updatedUser.getPassword())) {
-//            System.out.println(userFromDb.getPassword().equals(updatedUser.getPassword()));
-//            userRepository.save(updatedUser);
-//        } else
-//        {
+        User userFromDb = userRepository.findById(id).get();
+
+        if (updatedUser.getPassword().isEmpty()) {
+            userFromDb.setEmail(updatedUser.getEmail());
+            userFromDb.setUsername(updatedUser.getUsername());
+            userFromDb.setSurname(updatedUser.getSurname());
+            userFromDb.setRoles(updatedUser.getRoles());
+            userRepository.save(userFromDb);
+        } else {
             updatedUser.setPassword(bCryptPasswordEncoder.encode(updatedUser.getPassword()));
             userRepository.save(updatedUser);
         }
-
+    }
 
     @Transactional
     @Override

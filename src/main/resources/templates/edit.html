@@ -5,9 +5,11 @@
     <title>Update person</title>
 </head>
 <body>
-
+<div align="center">
+    <h2>Edit page</h2>
+    <br>
 <form th:method="PATCH" th:action="@{/admin/edit/{id}(id=${user.id})}" th:object="${user}">
-
+<br>
     <label for="username">Enter name:</label>
     <input type="text" th:field="*{username}" id="username"/>
     <br/>
@@ -42,5 +44,6 @@
 <br>
 <br>
 <a href="/logout">Logout</a>
+</div>
 </body>
 </html>
